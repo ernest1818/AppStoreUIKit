@@ -17,7 +17,7 @@
 		8874C25B28EED30100B74B33 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C25A28EED30100B74B33 /* SearchViewController.swift */; };
 		8874C25D28EED35400B74B33 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C25C28EED35400B74B33 /* BasketViewController.swift */; };
 		8874C26128EF2B7200B74B33 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C26028EF2B7200B74B33 /* ProductViewController.swift */; };
-		8874C26328EF52A200B74B33 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C26228EF52A200B74B33 /* MyTabBarController.swift */; };
+		8874C26328EF52A200B74B33 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C26228EF52A200B74B33 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		8874C25A28EED30100B74B33 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8874C25C28EED35400B74B33 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		8874C26028EF2B7200B74B33 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
-		8874C26228EF52A200B74B33 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		8874C26228EF52A200B74B33 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 			children = (
 				8874C24328EE2CD000B74B33 /* AppDelegate.swift */,
 				8874C24528EE2CD000B74B33 /* SceneDelegate.swift */,
-				8874C26228EF52A200B74B33 /* MyTabBarController.swift */,
+				8874C26228EF52A200B74B33 /* MainTabBarController.swift */,
 				8874C24728EE2CD000B74B33 /* BayViewController.swift */,
 				8874C25828EED2F400B74B33 /* ForYouViewController.swift */,
 				8874C25A28EED30100B74B33 /* SearchViewController.swift */,
@@ -177,7 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8874C25B28EED30100B74B33 /* SearchViewController.swift in Sources */,
-				8874C26328EF52A200B74B33 /* MyTabBarController.swift in Sources */,
+				8874C26328EF52A200B74B33 /* MainTabBarController.swift in Sources */,
 				8874C25928EED2F400B74B33 /* ForYouViewController.swift in Sources */,
 				8874C24828EE2CD000B74B33 /* BayViewController.swift in Sources */,
 				8874C26128EF2B7200B74B33 /* ProductViewController.swift in Sources */,

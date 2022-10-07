@@ -7,11 +7,11 @@
 
 import UIKit
 
-///  экран продукта
+///  Экран продукта
 final class ProductViewController: UIViewController {
 
     // MARK: - Visual Components
-    private lazy var myImage: UIImageView = {
+    private lazy var myImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 30, y: 150, width: 330, height: 150)
         myImageView.contentMode = .scaleAspectFit
@@ -41,8 +41,8 @@ final class ProductViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .black
         myLabel.text = text
-        myImage.image = UIImage(named: myImageIn)
-        view.addSubview(myImage)
+        myImageView.image = UIImage(named: myImageIn)
+        view.addSubview(myImageView)
         view.addSubview(myLabel)
     }
 }

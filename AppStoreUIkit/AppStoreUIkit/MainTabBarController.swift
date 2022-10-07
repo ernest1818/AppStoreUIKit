@@ -8,7 +8,7 @@
 import UIKit
 
 /// ТабБарКонтроллер 
-final class MyTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
 
     // MARK: - Lifeсycle
     override func viewDidLoad() {
