@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		8874C24428EE2CD000B74B33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C24328EE2CD000B74B33 /* AppDelegate.swift */; };
 		8874C24628EE2CD000B74B33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C24528EE2CD000B74B33 /* SceneDelegate.swift */; };
-		8874C24828EE2CD000B74B33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C24728EE2CD000B74B33 /* ViewController.swift */; };
+		8874C24828EE2CD000B74B33 /* BayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C24728EE2CD000B74B33 /* BayViewController.swift */; };
 		8874C24B28EE2CD000B74B33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8874C24928EE2CD000B74B33 /* Main.storyboard */; };
 		8874C24D28EE2CD100B74B33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8874C24C28EE2CD100B74B33 /* Assets.xcassets */; };
 		8874C25028EE2CD100B74B33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8874C24E28EE2CD100B74B33 /* LaunchScreen.storyboard */; };
+		8874C25928EED2F400B74B33 /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C25828EED2F400B74B33 /* ForYouViewController.swift */; };
+		8874C25B28EED30100B74B33 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C25A28EED30100B74B33 /* SearchViewController.swift */; };
+		8874C25D28EED35400B74B33 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C25C28EED35400B74B33 /* BasketViewController.swift */; };
+		8874C26128EF2B7200B74B33 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C26028EF2B7200B74B33 /* ProductViewController.swift */; };
+		8874C26328EF52A200B74B33 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874C26228EF52A200B74B33 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8874C24028EE2CD000B74B33 /* AppStoreUIkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreUIkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8874C24328EE2CD000B74B33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8874C24528EE2CD000B74B33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8874C24728EE2CD000B74B33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8874C24728EE2CD000B74B33 /* BayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayViewController.swift; sourceTree = "<group>"; };
 		8874C24A28EE2CD000B74B33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8874C24C28EE2CD100B74B33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8874C24F28EE2CD100B74B33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8874C25128EE2CD200B74B33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8874C25828EED2F400B74B33 /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
+		8874C25A28EED30100B74B33 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8874C25C28EED35400B74B33 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		8874C26028EF2B7200B74B33 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		8874C26228EF52A200B74B33 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +68,12 @@
 			children = (
 				8874C24328EE2CD000B74B33 /* AppDelegate.swift */,
 				8874C24528EE2CD000B74B33 /* SceneDelegate.swift */,
-				8874C24728EE2CD000B74B33 /* ViewController.swift */,
+				8874C26228EF52A200B74B33 /* MainTabBarController.swift */,
+				8874C24728EE2CD000B74B33 /* BayViewController.swift */,
+				8874C25828EED2F400B74B33 /* ForYouViewController.swift */,
+				8874C25A28EED30100B74B33 /* SearchViewController.swift */,
+				8874C25C28EED35400B74B33 /* BasketViewController.swift */,
+				8874C26028EF2B7200B74B33 /* ProductViewController.swift */,
 				8874C24928EE2CD000B74B33 /* Main.storyboard */,
 				8874C24C28EE2CD100B74B33 /* Assets.xcassets */,
 				8874C24E28EE2CD100B74B33 /* LaunchScreen.storyboard */,
@@ -161,7 +176,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8874C24828EE2CD000B74B33 /* ViewController.swift in Sources */,
+				8874C25B28EED30100B74B33 /* SearchViewController.swift in Sources */,
+				8874C26328EF52A200B74B33 /* MainTabBarController.swift in Sources */,
+				8874C25928EED2F400B74B33 /* ForYouViewController.swift in Sources */,
+				8874C24828EE2CD000B74B33 /* BayViewController.swift in Sources */,
+				8874C26128EF2B7200B74B33 /* ProductViewController.swift in Sources */,
+				8874C25D28EED35400B74B33 /* BasketViewController.swift in Sources */,
 				8874C24428EE2CD000B74B33 /* AppDelegate.swift in Sources */,
 				8874C24628EE2CD000B74B33 /* SceneDelegate.swift in Sources */,
 			);
