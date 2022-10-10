@@ -9,6 +9,18 @@ import UIKit
 
 /// ТабБарКонтроллер 
 final class MainTabBarController: UITabBarController {
+    
+    private enum Constans {
+        static let buyTitleText = "Купить"
+        static let forYouTitleText = "Для вас"
+        static let searchTitleText = "Поиск"
+        static let trashTitleText = "Корзина"
+        static let buyImageName = "laptopcomputer.and.iphone"
+        static let forYouImageName = "person.circle"
+        static let searchImageName = "magnifyingglass"
+        static let bagImageName = "bag"
+        static let darkColor = "darkgrayColor"
+    }
 
     // MARK: - Lifeсycle
     override func viewDidLoad() {
@@ -18,27 +30,28 @@ final class MainTabBarController: UITabBarController {
     
     // MARK: - Private methods
     private func setupUI() {
-        let bayVC = BayViewController()
+        let buyVC = BayViewController()
         let searchVC = SearchViewController()
         let forYouVC = ForYouViewController()
         let trashVC = BasketViewController()
         let forYouNavigationVC = UINavigationController(rootViewController: forYouVC)
         let searchNavigationVC = UINavigationController(rootViewController: searchVC)
         
-        bayVC.tabBarItem = UITabBarItem(title: "Купить",
-                                                     image: UIImage(systemName: "laptopcomputer.and.iphone"),
-                                                     selectedImage: UIImage(systemName: "laptopcomputer.and.iphone"))
-        forYouNavigationVC.tabBarItem = UITabBarItem(title: "для вас",
-                                                     image: UIImage(systemName: "person.circle"),
-                                                     selectedImage: UIImage(systemName: "person.circle"))
-        searchNavigationVC.tabBarItem = UITabBarItem(title: "Поиск",
-                                                     image: UIImage(systemName: "magnifyingglass"),
-                                                     selectedImage: UIImage(systemName: "magnifyingglass"))
-        trashVC.tabBarItem = UITabBarItem(title: "Корзина",
-                                          image: UIImage(systemName: "bag"),
-                                          selectedImage: UIImage(systemName: "bag"))
-        tabBar.backgroundColor = UIColor(named: "darkgrayColor")
+        buyVC.tabBarItem = UITabBarItem(title: Constans.buyTitleText,
+                                        image: UIImage(systemName: Constans.buyImageName),
+                                        tag: 0)
+       
+        forYouNavigationVC.tabBarItem = UITabBarItem(title: Constans.forYouTitleText,
+                                                     image: UIImage(systemName: Constans.forYouImageName),
+                                                     tag: 1)
+        searchNavigationVC.tabBarItem = UITabBarItem(title: Constans.searchTitleText,
+                                                     image: UIImage(systemName: Constans.searchImageName),
+                                                     tag: 2)
+        trashVC.tabBarItem = UITabBarItem(title: Constans.trashTitleText,
+                                          image: UIImage(systemName: Constans.bagImageName),
+                                          tag: 3)
+        tabBar.backgroundColor = UIColor(named: Constans.darkColor)
         
-        viewControllers = [bayVC, forYouNavigationVC, searchNavigationVC, trashVC]
+        viewControllers = [buyVC, forYouNavigationVC, searchNavigationVC, trashVC]
     }
 }
