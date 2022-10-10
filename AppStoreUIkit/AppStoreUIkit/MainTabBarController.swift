@@ -28,7 +28,7 @@ final class MainTabBarController: UITabBarController {
         bayVC.tabBarItem = UITabBarItem(title: "Купить",
                                                      image: UIImage(systemName: "laptopcomputer.and.iphone"),
                                                      selectedImage: UIImage(systemName: "laptopcomputer.and.iphone"))
-        forYouNavigationVC.tabBarItem = UITabBarItem(title: "для вас",
+        forYouNavigationVC.tabBarItem = UITabBarItem(title: "Для вас",
                                                      image: UIImage(systemName: "person.circle"),
                                                      selectedImage: UIImage(systemName: "person.circle"))
         searchNavigationVC.tabBarItem = UITabBarItem(title: "Поиск",
