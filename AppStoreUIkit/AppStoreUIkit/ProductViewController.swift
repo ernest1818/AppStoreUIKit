@@ -10,7 +10,7 @@ import UIKit
 ///  Экран продукта
 final class ProductViewController: UIViewController {
     
-    private enum Conctans {
+    private enum Contacts {
         static let orderText = "Заказ сегодня в теченеии дня, дотавка:"
         static let addButtonText = "Добавить в корзину"
         static let compatibilityLabelText = "Совместимо с"
@@ -61,27 +61,6 @@ final class ProductViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var firstScrollingImageView: UIImageView = {
-        let myImageView = UIImageView()
-        myImageView.frame = CGRect(x: 70, y: 12.5, width: 250, height: 220)
-        myImageView.contentMode = .scaleAspectFit
-        return myImageView
-    }()
-    
-    private lazy var secondScrollingImageView: UIImageView = {
-        let myImageView = UIImageView()
-        myImageView.frame = CGRect(x: 70 + 390, y: 0, width: 250, height: 245)
-        myImageView.contentMode = .scaleAspectFit
-        return myImageView
-    }()
-    
-    private lazy var therdScrollingImageView: UIImageView = {
-        let myImageView = UIImageView()
-        myImageView.frame = CGRect(x: 70 + (390 * 2), y: 0, width: 250, height: 245)
-        myImageView.contentMode = .scaleAspectFit
-        return myImageView
-    }()
-    
     private lazy var descriptionProductSmallLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 438, width: 390, height: 30)
@@ -97,7 +76,7 @@ final class ProductViewController: UIViewController {
        let button = UIButton()
         button.frame = CGRect(x: 155, y: 515, width: 35, height: 35)
         button.layer.cornerRadius = 17.5
-        button.backgroundColor = UIColor(named: Conctans.whiteColor)
+        button.backgroundColor = UIColor(named: Contacts.whiteColor)
         button.clipsToBounds = true
         return button
     }()
@@ -127,7 +106,7 @@ final class ProductViewController: UIViewController {
         button.layer.cornerRadius = 9
         button.backgroundColor = .systemBlue
         button.titleLabel?.font = .systemFont(ofSize: 13, weight: .bold)
-        button.setTitle(Conctans.addButtonText, for: .normal)
+        button.setTitle(Contacts.addButtonText, for: .normal)
         button.tintColor = .white
         return button
     }()
@@ -136,7 +115,7 @@ final class ProductViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 575, width: 172, height: 30)
         label.font = .systemFont(ofSize: 11, weight: .semibold)
-        label.text = Conctans.compatibilityLabelText
+        label.text = Contacts.compatibilityLabelText
         label.textColor = .gray
         label.textAlignment = .right
         return label
@@ -146,7 +125,7 @@ final class ProductViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 174, y: 575, width: 172, height: 30)
         label.font = .systemFont(ofSize: 11, weight: .semibold)
-        label.text = Conctans.macBookText
+        label.text = Contacts.macBookText
         label.textColor = .tintColor
         label.textAlignment = .left
         return label
@@ -155,7 +134,7 @@ final class ProductViewController: UIViewController {
     private lazy var checkMarkImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 60, y: 580, width: 18, height: 18)
-        myImageView.image = UIImage(systemName: Conctans.checkmarkImageName)
+        myImageView.image = UIImage(systemName: Contacts.checkmarkImageName)
         myImageView.contentMode = .scaleAspectFit
         myImageView.tintColor = .green
         return myImageView
@@ -165,7 +144,7 @@ final class ProductViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 60, y: 705, width: 300, height: 15)
         label.font = .systemFont(ofSize: 11, weight: .semibold)
-        label.text = Conctans.orderText
+        label.text = Contacts.orderText
         label.textColor = .white
         label.textAlignment = .left
         return label
@@ -175,7 +154,7 @@ final class ProductViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 60, y: 720, width: 300, height: 15)
         label.font = .systemFont(ofSize: 11, weight: .semibold)
-        label.text = Conctans.dateText
+        label.text = Contacts.dateText
         label.textColor = .gray
         label.textAlignment = .left
         return label
@@ -185,7 +164,7 @@ final class ProductViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 60, y: 735, width: 300, height: 15)
         label.font = .systemFont(ofSize: 11, weight: .regular)
-        label.text = Conctans.typeDeliveryText
+        label.text = Contacts.typeDeliveryText
         label.textColor = .tintColor
         label.textAlignment = .left
         return label
@@ -194,7 +173,7 @@ final class ProductViewController: UIViewController {
     private lazy var shippingBoxImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 20, y: 705, width: 18, height: 18)
-        myImageView.image = UIImage(systemName: Conctans.shippingboxImageName)
+        myImageView.image = UIImage(systemName: Contacts.shippingboxImageName)
         myImageView.contentMode = .scaleAspectFit
         myImageView.tintColor = .systemGray2
         return myImageView
@@ -202,7 +181,7 @@ final class ProductViewController: UIViewController {
 
     // MARK: - Public properties
     var discriptionText = ""
-    var firstImageName = ""
+    var imageNames: [String] = []
     var secondImageName = ""
     var therdImageName = ""
     var price = ""
@@ -228,10 +207,6 @@ final class ProductViewController: UIViewController {
         view.addSubview(priceLabel)
         view.addSubview(imagesScrollView)
         
-        imagesScrollView.addSubview(firstScrollingImageView)
-        imagesScrollView.addSubview(secondScrollingImageView)
-        imagesScrollView.addSubview(therdScrollingImageView)
-        
         view.addSubview(descriptionProductLabel)
         view.addSubview(descriptionProductSmallLabel)
         
@@ -251,15 +226,25 @@ final class ProductViewController: UIViewController {
         
         view.addSubview(shippingBoxImageView)
         setUpNavigationBar()
-        setupImages()
         setupScrollViewConfig()
         setupGradientColorButton()
+        createScrollView()
     }
     
-    private func setupImages() {
-        firstScrollingImageView.image = UIImage(named: firstImageName)
-        secondScrollingImageView.image = UIImage(named: secondImageName)
-        therdScrollingImageView.image = UIImage(named: therdImageName)
+    private func createScrollView() {
+        let firstImageView = creteImageViews(coordinate: 70)
+        let secondImageView = creteImageViews(coordinate: 70 + 390)
+        let therdImageView = creteImageViews(coordinate: 70 + (390 * 2))
+        let imageViews = [firstImageView, secondImageView, therdImageView]
+        
+        for imageView in imageViews {
+            imagesScrollView.addSubview(imageView)
+        }
+        
+        for number in 0..<imageNames.count {
+            imageViews[number].image = UIImage(named: imageNames[number])
+        }
+        
     }
     
     private func setupScrollViewConfig() {
@@ -270,8 +255,8 @@ final class ProductViewController: UIViewController {
     
     private func setupGradientColorButton() {
         let gradientColor = CAGradientLayer()
-        guard let firstColor = UIColor(named: Conctans.blackColor)?.cgColor,
-              let secondColor = UIColor(named: Conctans.blackColorTwo)?.cgColor else { return }
+        guard let firstColor = UIColor(named: Contacts.blackColor)?.cgColor,
+              let secondColor = UIColor(named: Contacts.blackColorTwo)?.cgColor else { return }
         gradientColor.colors = [firstColor, secondColor]
         gradientColor.frame = grayColorButton.bounds
         grayColorButton.layer.insertSublayer(gradientColor, at: 0)
@@ -279,7 +264,16 @@ final class ProductViewController: UIViewController {
     
     private func setUpNavigationBar() {
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: Conctans.heartImageName)),
-            UIBarButtonItem(image: UIImage(systemName: Conctans.squareImageName))]
+            UIBarButtonItem(image: UIImage(systemName: Contacts.heartImageName)),
+            UIBarButtonItem(image: UIImage(systemName: Contacts.squareImageName))]
+    }
+}
+
+extension UIViewController {
+    func creteImageViews(coordinate: CGFloat) -> UIImageView {
+        let myImageView = UIImageView()
+        myImageView.frame = CGRect(x: coordinate, y: 12.5, width: 250, height: 245)
+        myImageView.contentMode = .scaleAspectFit
+        return myImageView
     }
 }

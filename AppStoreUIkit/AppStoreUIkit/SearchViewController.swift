@@ -22,23 +22,18 @@ final class SearchViewController: UIViewController {
         static let whatchText = "Спортивный ремещок Black Unity (для к..."
         static let brownCaseText = "Кожанный чехол для MacBook Pro 16 дюймов зол"
         static let iphoneText = "iphone 14 Pro Deep Purple"
-        static let firstImageNameOne = "1"
-        static let firstImageNameTwo = "blackCase2"
-        static let firstImageNameThree = "blackCase3"
-        static let therdImageNameOne = "3"
-        static let therdImageNameTwo = "caseBrown2"
-        static let therdImageNameThree = "caseBrown3"
-        static let secondImageNameOne = "2"
-        static let secondImageNameTwo = "clock2"
-        static let iphoneImageName = "iphone"
-        static let iphoneImageNameOne = "iphone1"
-        static let iphoneImageNameTwo = "iphone2"
+        static let firstImageName = ["1", "blackCase2", "blackCase3"]
+        static let therdImageName = ["3", "caseBrown2", "caseBrown3"]
+        static let secondImageName = ["2", "clock2"]
+        static let iphoneImageName = ["iphone", "iphone1", "iphone2"]
         static let darkColor = "darkgrayColor"
         static let samyColor = "samygrayColor"
         static let blackCasePrice = "3990.00 руб."
         static let whatchPrice = "1440.00 руб."
         static let brownCasePrice = "6599.00 руб."
         static let iphonePrice = "99 999.00 руб."
+        static let searchText = "Поиск"
+        static let glassImageName = "magnifyingglass"
     }
     
     // MARK: - Visual Components
@@ -164,74 +159,10 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var firstLineView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 30, y: 555, width: 350, height: 1)
-        view.backgroundColor = UIColor(named: Constans.darkColor)
-        return view
-    }()
-    
-    private lazy var secondLineView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 30, y: 605, width: 350, height: 1)
-        view.backgroundColor = UIColor(named: Constans.darkColor)
-        return view
-    }()
-    
-    private lazy var therdLineView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 30, y: 655, width: 350, height: 1)
-        view.backgroundColor = UIColor(named: Constans.darkColor)
-        return view
-    }()
-    
-    private lazy var fourthLineView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 30, y: 705, width: 350, height: 1)
-        view.backgroundColor = UIColor(named: Constans.darkColor)
-        return view
-    }()
-    
-    private lazy var oneGlassImageView: UIImageView = {
-        let myImageView = UIImageView()
-        myImageView.frame = CGRect(x: 17, y: 520, width: 20, height: 20)
-        myImageView.tintColor = .darkGray
-        myImageView.contentMode = .scaleAspectFit
-        myImageView.image = UIImage(systemName: "magnifyingglass")
-        return myImageView
-    }()
-    
-    private lazy var twoGlassImageView: UIImageView = {
-        let myImageView = UIImageView()
-        myImageView.frame = CGRect(x: 17, y: 570, width: 20, height: 20)
-        myImageView.tintColor = .darkGray
-        myImageView.contentMode = .scaleAspectFit
-        myImageView.image = UIImage(systemName: "magnifyingglass")
-        return myImageView
-    }()
-    
-    private lazy var threeGlassImageView: UIImageView = {
-        let myImageView = UIImageView()
-        myImageView.frame = CGRect(x: 17, y: 620, width: 20, height: 20)
-        myImageView.tintColor = .darkGray
-        myImageView.contentMode = .scaleAspectFit
-        myImageView.image = UIImage(systemName: "magnifyingglass")
-        return myImageView
-    }()
-    
-    private lazy var fourGlassImageView: UIImageView = {
-        let myImageView = UIImageView()
-        myImageView.frame = CGRect(x: 17, y: 670, width: 20, height: 20)
-        myImageView.tintColor = .darkGray
-        myImageView.contentMode = .scaleAspectFit
-        myImageView.image = UIImage(systemName: "magnifyingglass")
-        return myImageView
-    }()
-    
     private lazy var blackCaseImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 27.5, y: 20, width: 85, height: 85)
-        myImageView.image = UIImage(named: Constans.firstImageNameOne)
+        myImageView.image = UIImage(named: Constans.firstImageName.first ?? "")
         myImageView.contentMode = .scaleAspectFit
         myImageView.tag = 1
         return myImageView
@@ -240,7 +171,7 @@ final class SearchViewController: UIViewController {
     private lazy var whatchCaseImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 27.5, y: 20, width: 85, height: 85)
-        myImageView.image = UIImage(named: Constans.secondImageNameOne)
+        myImageView.image = UIImage(named: Constans.secondImageName.first ?? "")
         myImageView.contentMode = .scaleAspectFit
         myImageView.tag = 2
         return myImageView
@@ -249,7 +180,7 @@ final class SearchViewController: UIViewController {
     private lazy var brownCaseImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 27.5, y: 20, width: 85, height: 85)
-        myImageView.image = UIImage(named: Constans.therdImageNameOne)
+        myImageView.image = UIImage(named: Constans.therdImageName.first ?? "")
         myImageView.contentMode = .scaleAspectFit
         myImageView.tag = 3
         return myImageView
@@ -258,7 +189,7 @@ final class SearchViewController: UIViewController {
     private lazy var iphoneImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 27.5, y: 20, width: 85, height: 85)
-        myImageView.image = UIImage(named: Constans.iphoneImageName)
+        myImageView.image = UIImage(named: Constans.iphoneImageName.first ?? "")
         myImageView.contentMode = .scaleAspectFit
         myImageView.tag = 3
         return myImageView
@@ -319,7 +250,7 @@ final class SearchViewController: UIViewController {
         setupViews()
         addRecognaizers()
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Поиск"
+        title = Constans.searchText
     }
     
     private func setupViews() {
@@ -341,16 +272,6 @@ final class SearchViewController: UIViewController {
         view.addSubview(beatsLabel)
         view.addSubview(iphoneLabel)
         
-        view.addSubview(firstLineView)
-        view.addSubview(secondLineView)
-        view.addSubview(therdLineView)
-        view.addSubview(fourthLineView)
-        
-        view.addSubview(oneGlassImageView)
-        view.addSubview(twoGlassImageView)
-        view.addSubview(threeGlassImageView)
-        view.addSubview(fourGlassImageView)
-        
         blackBagView.addSubview(blackCaseImageView)
         blackBagView.addSubview(blackCaseLabel)
         whatchView.addSubview(whatchCaseImageView)
@@ -359,6 +280,23 @@ final class SearchViewController: UIViewController {
         brownBagView.addSubview(brownCaseLabel)
         iphoneProView.addSubview(iphoneImageView)
         iphoneProView.addSubview(iphoneProLabel)
+        
+        createGlassImageViews()
+        createLineViews()
+    }
+    
+    private func createGlassImageViews() {
+        view.addSubview(createGlassImageViews(coordinateY: 520))
+        view.addSubview(createGlassImageViews(coordinateY: 570))
+        view.addSubview(createGlassImageViews(coordinateY: 620))
+        view.addSubview(createGlassImageViews(coordinateY: 670))
+    }
+    
+    private func createLineViews() {
+        view.addSubview(createLineView(coordinateY: 555))
+        view.addSubview(createLineView(coordinateY: 605))
+        view.addSubview(createLineView(coordinateY: 655))
+        view.addSubview(createLineView(coordinateY: 705))
     }
     
     private func addRecognaizers() {
@@ -382,31 +320,42 @@ final class SearchViewController: UIViewController {
         switch tag {
         case 1:
             productVC.discriptionText = Constans.blackCaseText
-            productVC.firstImageName = Constans.firstImageNameOne
-            productVC.secondImageName = Constans.firstImageNameTwo
-            productVC.therdImageName = Constans.firstImageNameThree
+            productVC.imageNames = Constans.firstImageName
             productVC.price = Constans.blackCasePrice
         case 2:
             productVC.discriptionText = Constans.whatchText
-            productVC.firstImageName = Constans.secondImageNameOne
-            productVC.secondImageName = Constans.secondImageNameTwo
+            productVC.imageNames = Constans.secondImageName
             productVC.price = Constans.whatchPrice
             productVC.tag = tag ?? 00
         case 3:
             productVC.discriptionText = Constans.brownCaseText
-            productVC.firstImageName = Constans.therdImageNameOne
-            productVC.secondImageName = Constans.therdImageNameTwo
-            productVC.therdImageName = Constans.therdImageNameThree
+            productVC.imageNames = Constans.therdImageName
             productVC.price = Constans.brownCasePrice
         case 4:
             productVC.discriptionText = Constans.iphoneText
-            productVC.firstImageName = Constans.iphoneImageName
-            productVC.secondImageName = Constans.iphoneImageNameOne
-            productVC.therdImageName = Constans.iphoneImageNameTwo
+            productVC.imageNames = Constans.iphoneImageName
             productVC.price = Constans.iphonePrice
         default:
             break
         }
         navigationController?.pushViewController(productVC, animated: true)
+    }
+}
+
+extension UIViewController {
+    func createGlassImageViews(coordinateY: CGFloat) -> UIImageView {
+        let myImageView = UIImageView()
+        myImageView.frame = CGRect(x: 17, y: coordinateY, width: 20, height: 20)
+        myImageView.tintColor = .darkGray
+        myImageView.contentMode = .scaleAspectFit
+        myImageView.image = UIImage(systemName: "magnifyingglass")
+        return myImageView
+    }
+    
+    func createLineView(coordinateY: CGFloat) -> UIView {
+        let view = UIView()
+        view.frame = CGRect(x: 30, y: coordinateY, width: 350, height: 1)
+        view.backgroundColor = UIColor(named: "darkgrayColor")
+        return view
     }
 }
