@@ -17,6 +17,7 @@ final class ProductViewController: UIViewController {
         static let macBookText = "MacBook Pro - Евгений"
         static let dateText = "Чт 25 Фев - Бесплатно"
         static let typeDeliveryText = "Варианты доставки для местоположения: 115533"
+        static let priceText = "Подробнее"
         static let darkColor = "darkgrayColor"
         static let whiteColor = "whiteButtonColor"
         static let blackColor = "blackButtonColor"
@@ -178,12 +179,20 @@ final class ProductViewController: UIViewController {
         myImageView.tintColor = .systemGray2
         return myImageView
     }()
+    
+    private lazy var priceButton: UIButton = {
+       let button = UIButton()
+        button.frame = CGRect(x: 335, y: 728, width: 60, height: 30)
+        button.titleLabel?.font = .systemFont(ofSize: 9, weight: .bold)
+        button.setTitle(Contacts.priceText, for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(recognaizerAndPriceAction), for: .touchUpInside)
+        return button
+    }()
 
     // MARK: - Public properties
     var discriptionText = ""
     var imageNames: [String] = []
-    var secondImageName = ""
-    var therdImageName = ""
     var price = ""
     var tag = 0
     
@@ -193,17 +202,9 @@ final class ProductViewController: UIViewController {
         setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let apperiance = UINavigationBarAppearance()
-        apperiance.configureWithOpaqueBackground()
-        apperiance.backgroundColor = .red
-        navigationController?.navigationBar.standardAppearance = apperiance
-    }
-    
     // MARK: - Private methods
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .black
         view.addSubview(priceLabel)
         view.addSubview(imagesScrollView)
         
@@ -225,6 +226,7 @@ final class ProductViewController: UIViewController {
         view.addSubview(typeOfDevileryLabel)
         
         view.addSubview(shippingBoxImageView)
+        view.addSubview(priceButton)
         setUpNavigationBar()
         setupScrollViewConfig()
         setupGradientColorButton()
@@ -239,6 +241,9 @@ final class ProductViewController: UIViewController {
         
         for imageView in imageViews {
             imagesScrollView.addSubview(imageView)
+            imageView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                  action: #selector(recognaizerAndPriceAction)))
+            imageView.isUserInteractionEnabled = true
         }
         
         for number in 0..<imageNames.count {
@@ -266,6 +271,17 @@ final class ProductViewController: UIViewController {
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(systemName: Contacts.heartImageName)),
             UIBarButtonItem(image: UIImage(systemName: Contacts.squareImageName))]
+    }
+    
+    @objc private func recognaizerAndPriceAction(_ sender: Any) {
+        let webVC = WebViewController()
+        if sender is UITapGestureRecognizer {
+            webVC.tag = tag
+        } else {
+            webVC.tag = 5
+        }
+        webVC.modalPresentationStyle = .fullScreen
+        present(webVC, animated: true)
     }
 }
 

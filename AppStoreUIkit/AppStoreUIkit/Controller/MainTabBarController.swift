@@ -51,7 +51,6 @@ final class MainTabBarController: UITabBarController {
                                           image: UIImage(systemName: Constans.bagImageName),
                                           tag: 3)
         tabBar.backgroundColor = UIColor(named: Constans.darkColor)
-        
         viewControllers = [buyVC, forYouNavigationVC, searchNavigationVC, trashVC]
     }
 }

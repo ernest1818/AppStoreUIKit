@@ -245,11 +245,19 @@ final class SearchViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        tabBarController?.tabBar.backgroundColor = UIColor(named: Constans.darkColor)
+    }
+    
     // MARK: - Private methods
     private func setupUI() {
         setupViews()
         addRecognaizers()
+        view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.barStyle = .black
+        
         title = Constans.searchText
     }
     
@@ -322,6 +330,7 @@ final class SearchViewController: UIViewController {
             productVC.discriptionText = Constans.blackCaseText
             productVC.imageNames = Constans.firstImageName
             productVC.price = Constans.blackCasePrice
+            productVC.tag = tag ?? 00
         case 2:
             productVC.discriptionText = Constans.whatchText
             productVC.imageNames = Constans.secondImageName
@@ -331,10 +340,12 @@ final class SearchViewController: UIViewController {
             productVC.discriptionText = Constans.brownCaseText
             productVC.imageNames = Constans.therdImageName
             productVC.price = Constans.brownCasePrice
+            productVC.tag = tag ?? 00
         case 4:
             productVC.discriptionText = Constans.iphoneText
             productVC.imageNames = Constans.iphoneImageName
             productVC.price = Constans.iphonePrice
+            productVC.tag = tag ?? 00
         default:
             break
         }
