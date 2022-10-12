@@ -37,7 +37,7 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Visual Components
-    private lazy var searchBar: UISearchBar = {
+    private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.frame = CGRect(x: 10, y: 145, width: 370, height: 30)
         searchBar.placeholder = Constans.searchBarPlaceholder
@@ -48,7 +48,7 @@ final class SearchViewController: UIViewController {
         return searchBar
     }()
     
-    private lazy var viewedLabel: UILabel = {
+    private let viewedLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 10, y: 200, width: 300, height: 60)
         label.textColor = .white
@@ -57,7 +57,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var clearButton: UIButton = {
+    private let clearButton: UIButton = {
        let button = UIButton()
         button.frame = CGRect(x: 300, y: 202, width: 100, height: 60)
         button.setTitle("Очистить", for: .normal)
@@ -78,7 +78,7 @@ final class SearchViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var blackBagView: UIView = {
+    private let blackBagView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 10, y: 0, width: 140, height: 180)
         view.backgroundColor = UIColor(named: Constans.samyColor)
@@ -87,7 +87,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var whatchView: UIView = {
+    private let whatchView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 160, y: 0, width: 140, height: 180)
         view.backgroundColor = UIColor(named: Constans.samyColor)
@@ -96,7 +96,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var brownBagView: UIView = {
+    private let brownBagView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 310, y: 0, width: 140, height: 180)
         view.backgroundColor = UIColor(named: Constans.samyColor)
@@ -105,7 +105,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var iphoneProView: UIView = {
+    private let iphoneProView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 460, y: 0, width: 140, height: 180)
         view.backgroundColor = UIColor(named: Constans.samyColor)
@@ -114,7 +114,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var requestsLabel: UILabel = {
+    private let requestsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 10, y: 455, width: 300, height: 60)
         label.textColor = .white
@@ -123,7 +123,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var airPodsLabel: UILabel = {
+    private let airPodsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 50, y: 505, width: 300, height: 50)
         label.textColor = .white
@@ -132,7 +132,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var appleCarsLabel: UILabel = {
+    private let appleCarsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 50, y: 555, width: 300, height: 50)
         label.textColor = .white
@@ -141,7 +141,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var beatsLabel: UILabel = {
+    private let beatsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 50, y: 605, width: 300, height: 50)
         label.textColor = .white
@@ -150,7 +150,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var iphoneLabel: UILabel = {
+    private let iphoneLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 50, y: 655, width: 300, height: 50)
         label.textColor = .white
@@ -159,7 +159,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var blackCaseImageView: UIImageView = {
+    private let blackCaseImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 27.5, y: 20, width: 85, height: 85)
         myImageView.image = UIImage(named: Constans.firstImageName.first ?? "")
@@ -168,7 +168,7 @@ final class SearchViewController: UIViewController {
         return myImageView
     }()
     
-    private lazy var whatchCaseImageView: UIImageView = {
+    private let whatchCaseImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 27.5, y: 20, width: 85, height: 85)
         myImageView.image = UIImage(named: Constans.secondImageName.first ?? "")
@@ -177,7 +177,7 @@ final class SearchViewController: UIViewController {
         return myImageView
     }()
     
-    private lazy var brownCaseImageView: UIImageView = {
+    private let brownCaseImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 27.5, y: 20, width: 85, height: 85)
         myImageView.image = UIImage(named: Constans.therdImageName.first ?? "")
@@ -186,7 +186,7 @@ final class SearchViewController: UIViewController {
         return myImageView
     }()
     
-    private lazy var iphoneImageView: UIImageView = {
+    private let iphoneImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 27.5, y: 20, width: 85, height: 85)
         myImageView.image = UIImage(named: Constans.iphoneImageName.first ?? "")
@@ -195,7 +195,7 @@ final class SearchViewController: UIViewController {
         return myImageView
     }()
     
-    private lazy var blackCaseLabel: UILabel = {
+    private let blackCaseLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 10, y: 105, width: 120, height: 80)
         label.lineBreakMode = .byWordWrapping
@@ -206,7 +206,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var whatchCaseLabel: UILabel = {
+    private let whatchCaseLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 10, y: 105, width: 110, height: 80)
         label.lineBreakMode = .byWordWrapping
@@ -217,7 +217,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var brownCaseLabel: UILabel = {
+    private let brownCaseLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 10, y: 105, width: 120, height: 80)
         label.lineBreakMode = .byWordWrapping
@@ -228,7 +228,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var iphoneProLabel: UILabel = {
+    private let iphoneProLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 10, y: 105, width: 120, height: 80)
         label.lineBreakMode = .byWordWrapping
@@ -244,20 +244,13 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        tabBarController?.tabBar.backgroundColor = UIColor(named: Constans.darkColor)
-    }
-    
+        
     // MARK: - Private methods
     private func setupUI() {
         setupViews()
         addRecognaizers()
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationBar.barStyle = .black
-        
         title = Constans.searchText
     }
     
@@ -308,47 +301,41 @@ final class SearchViewController: UIViewController {
     }
     
     private func addRecognaizers() {
-        blackBagView.tag = 1
+        blackBagView.tag = 0
         blackBagView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(recognaizerAction)))
         blackBagView.isUserInteractionEnabled = true
-        whatchView.tag = 2
+        whatchView.tag = 1
         whatchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(recognaizerAction)))
         whatchView.isUserInteractionEnabled = true
-        brownBagView.tag = 3
+        brownBagView.tag = 2
         brownBagView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(recognaizerAction)))
         brownBagView.isUserInteractionEnabled = true
-        iphoneProView.tag = 4
+        iphoneProView.tag = 3
         iphoneProView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(recognaizerAction)))
         iphoneProView.isUserInteractionEnabled = true
     }
     
     @objc private func recognaizerAction(_ sender: UIGestureRecognizer) {
         let productVC = ProductViewController()
-        let tag = sender.view?.tag
-        switch tag {
-        case 1:
-            productVC.discriptionText = Constans.blackCaseText
-            productVC.imageNames = Constans.firstImageName
-            productVC.price = Constans.blackCasePrice
-            productVC.tag = tag ?? 00
-        case 2:
-            productVC.discriptionText = Constans.whatchText
-            productVC.imageNames = Constans.secondImageName
-            productVC.price = Constans.whatchPrice
-            productVC.tag = tag ?? 00
-        case 3:
-            productVC.discriptionText = Constans.brownCaseText
-            productVC.imageNames = Constans.therdImageName
-            productVC.price = Constans.brownCasePrice
-            productVC.tag = tag ?? 00
-        case 4:
-            productVC.discriptionText = Constans.iphoneText
-            productVC.imageNames = Constans.iphoneImageName
-            productVC.price = Constans.iphonePrice
-            productVC.tag = tag ?? 00
-        default:
-            break
-        }
+        let items = [(name: Constans.blackCaseText,
+                      imageName: Constans.firstImageName,
+                      prices: Constans.blackCasePrice,
+                      tags: blackBagView.tag),
+                     (name: Constans.whatchText,
+                      imageName: Constans.secondImageName,
+                      prices: Constans.whatchPrice,
+                      tags: whatchView.tag),
+                     (name: Constans.brownCaseText,
+                      imageName: Constans.therdImageName,
+                      prices: Constans.brownCasePrice,
+                      tags: brownBagView.tag),
+                     (name: Constans.iphoneText,
+                      imageName: Constans.iphoneImageName,
+                      prices: Constans.iphonePrice,
+                      tags: iphoneProView.tag)]
+        
+        let item = items[sender.view?.tag ?? 0]
+        productVC.product = item
         navigationController?.pushViewController(productVC, animated: true)
     }
 }

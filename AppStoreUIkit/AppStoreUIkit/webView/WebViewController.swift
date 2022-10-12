@@ -9,18 +9,18 @@ import UIKit
 import WebKit
 
 /// Экран отображения страниц во всемирной поутине
-class WebViewController: UIViewController {
-
-    private enum Constans {
+final class WebViewController: UIViewController {
+    
+    private enum Constants {
         static let goBackItem = "chevron.left"
         static let goForvardItem = "chevron.right"
         static let refreshItem = "goforward"
         static let sharedItem = "square.and.arrow.up"
-        static let firstUrl = "https://www.apple.com/shop/product/HLKY2ZM/A/incase-13-icon-sleeve-with-woolenex-for-macbook-air-and-macbook-pro?fnode=285eae0bf10ed862ac6c7ea26ed75bb22efe24e7c170b11a562aeb225166dc5bc951d82c734825dec8a26e425feba2c58c859bdf7c8ac7171d90a6b7f5c4e715063cc738b1b0b1b29a03891adb0d4968694cad0af9c63f3a32bc2d038def77e9c9e7c69fdf2a8264c0e50a12546e061d"
-        
-        static let secondUrl = "https://www.apple.com/shop/product/MJ4V3AM/A/40mm-black-unity-sport-band-regular?fnode=33e7e2286239daabbb734d1fb56f75cc51419fd6f68f8afa4121ea5dac5db5648c6412601e5944a24c5aeb67d5dc1352860577692810fc1157d1ceca4c121e2b11ec8075f5acfff638099db43b707d1f"
-        static let therdUrl = "https://www.apple.com/shop/product/HPZS2ZM/A/von-holzhausen-macbook-14-portfolio?fnode=285eae0bf10ed862ac6c7ea26ed75bb22efe24e7c170b11a562aeb225166dc5bc951d82c734825dec8a26e425feba2c58c859bdf7c8ac7171d90a6b7f5c4e715063cc738b1b0b1b29a03891adb0d4968694cad0af9c63f3a32bc2d038def77e9c9e7c69fdf2a8264c0e50a12546e061d"
-        static let fourUrl = "https://www.apple.com/iphone/compare/"
+        static let urls = [
+            "https://www.apple.com/shop/product/HLKY2ZM/A/incase-13-icon-sleeve-with-woolenex-for-macbook-air-and-macbook-pro?fnode=285eae0bf10ed862ac6c7ea26ed75bb22efe24e7c170b11a562aeb225166dc5bc951d82c734825dec8a26e425feba2c58c859bdf7c8ac7171d90a6b7f5c4e715063cc738b1b0b1b29a03891adb0d4968694cad0af9c63f3a32bc2d038def77e9c9e7c69fdf2a8264c0e50a12546e061d",
+            "https://www.apple.com/shop/product/MJ4V3AM/A/40mm-black-unity-sport-band-regular?fnode=33e7e2286239daabbb734d1fb56f75cc51419fd6f68f8afa4121ea5dac5db5648c6412601e5944a24c5aeb67d5dc1352860577692810fc1157d1ceca4c121e2b11ec8075f5acfff638099db43b707d1f",
+            "https://www.apple.com/shop/product/HPZS2ZM/A/von-holzhausen-macbook-14-portfolio?fnode=285eae0bf10ed862ac6c7ea26ed75bb22efe24e7c170b11a562aeb225166dc5bc951d82c734825dec8a26e425feba2c58c859bdf7c8ac7171d90a6b7f5c4e715063cc738b1b0b1b29a03891adb0d4968694cad0af9c63f3a32bc2d038def77e9c9e7c69fdf2a8264c0e50a12546e061d",
+            "https://www.apple.com/iphone/compare/"]
     }
     
     // MARK: - Private variables
@@ -40,7 +40,7 @@ class WebViewController: UIViewController {
     
     // MARK: - Public variables
     var tag = 0
-    
+    var tagTwo: Int?
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,30 +61,16 @@ class WebViewController: UIViewController {
         webView = WKWebView(frame: .init(x: 0, y: 80, width: view.bounds.width, height: 700),
                             configuration: webConfiguration)
         webView.navigationDelegate = self
-        self.view.addSubview(webView)
+        view.addSubview(webView)
         
     }
     
     private func createUrl() {
         
-        guard var url = URL(string: "https://www.apple.com") else { return }
-        guard let pdfUrl = Bundle.main.url(forResource: "price", withExtension: "pdf")
-        else { return }
-        
-        switch tag {
-        case 1:
-            url = URL(string: Constans.firstUrl) ?? url
-            print(url)
-        case 2:
-            url = URL(string: Constans.secondUrl) ?? url
-        case 3:
-            url = URL(string: Constans.therdUrl) ?? url
-        case 4:
-            url = URL(string: Constans.fourUrl) ?? url
-        case 5:
+        guard var url = URL(string: Constants.urls[tag]),
+              let pdfUrl = Bundle.main.url(forResource: "price", withExtension: "pdf") else { return }
+        if tagTwo != nil {
             url = pdfUrl
-        default:
-            break
         }
         
         let myRequest = URLRequest(url: url)
@@ -112,15 +98,15 @@ class WebViewController: UIViewController {
         let screenWidth = view.bounds.width
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 770, width: screenWidth, height: 44))
         toolBar.backgroundColor = .clear
-        goBackItem = UIBarButtonItem(image: UIImage(systemName: Constans.goBackItem),
+        goBackItem = UIBarButtonItem(image: UIImage(systemName: Constants.goBackItem),
                                      style: .plain,
                                      target: self,
                                      action: #selector(goBackAction))
-        goForvardItem = UIBarButtonItem(image: UIImage(systemName: Constans.goForvardItem),
+        goForvardItem = UIBarButtonItem(image: UIImage(systemName: Constants.goForvardItem),
                                         style: .plain,
                                         target: self,
                                         action: #selector(goForwardAction))
-        sharedItem = UIBarButtonItem(image: UIImage(systemName: Constans.sharedItem),
+        sharedItem = UIBarButtonItem(image: UIImage(systemName: Constants.sharedItem),
                                      style: .plain,
                                      target: self,
                                      action: #selector(sharedAction))
@@ -146,13 +132,12 @@ class WebViewController: UIViewController {
     
     private func createProgressView() {
         myProgressView.setProgress(0.5, animated: false)
-        
         observation = webView.observe(\.estimatedProgress, options: [.new]) { _, _ in
-               self.myProgressView.progress = Float(self.webView.estimatedProgress)
+            self.myProgressView.progress = Float(self.webView.estimatedProgress)
             if self.myProgressView.progress == 1.0 {
                 self.myProgressView.isHidden = true
             }
-           }
+        }
     }
     
     @objc private func refreshAction() {
@@ -178,10 +163,6 @@ class WebViewController: UIViewController {
         present(activityViewControler, animated: true)
     }
     
-    @objc private func doneAction() {
-        dismiss(animated: true)
-    }
-    
     private func showActivityIndicator(show: Bool) {
         if show {
             activityIndicator.startAnimating()
@@ -191,18 +172,21 @@ class WebViewController: UIViewController {
         }
     }
     
+    @objc private func doneAction() {
+        dismiss(animated: true)
+    }
 }
 
 // MARK: - WKNavigationDelegate
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.showActivityIndicator(show: false)
+        showActivityIndicator(show: false)
     }
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        self.createActivityIndicator()
-        self.showActivityIndicator(show: true)
+        createActivityIndicator()
+        showActivityIndicator(show: true)
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        self.showActivityIndicator(show: false)
+        showActivityIndicator(show: false)
     }
 }

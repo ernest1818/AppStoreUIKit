@@ -33,7 +33,7 @@ final class ProductViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 110, width: 390, height: 30)
         label.textColor = .white
-        label.text = discriptionText
+        label.text = product?.0
         label.font = .systemFont(ofSize: 16, weight: .bold)
         label.textAlignment = .center
         label.numberOfLines = 1
@@ -44,7 +44,7 @@ final class ProductViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 140, width: 390, height: 20)
         label.textColor = .gray
-        label.text = price
+        label.text = product?.prices
         label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.textAlignment = .center
         label.numberOfLines = 1
@@ -66,14 +66,14 @@ final class ProductViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 438, width: 390, height: 30)
         label.font = .systemFont(ofSize: 10, weight: .semibold)
-        label.text = discriptionText
+        label.text = product?.name
         label.textColor = .gray
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
     
-    private lazy var whiteColorButton: UIButton = {
+    private let whiteColorButton: UIButton = {
        let button = UIButton()
         button.frame = CGRect(x: 155, y: 515, width: 35, height: 35)
         button.layer.cornerRadius = 17.5
@@ -82,7 +82,7 @@ final class ProductViewController: UIViewController {
         return button
     }()
     
-    private lazy var grayColorButton: UIButton = {
+    private let grayColorButton: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 200, y: 515, width: 32, height: 32)
         button.layer.cornerRadius = 16
@@ -101,7 +101,7 @@ final class ProductViewController: UIViewController {
         return borderView
     }()
     
-    private lazy var addToBusketButton: UIButton = {
+    private let addToBusketButton: UIButton = {
        let button = UIButton()
         button.frame = CGRect(x: 10, y: 632, width: 370, height: 38)
         button.layer.cornerRadius = 9
@@ -112,7 +112,7 @@ final class ProductViewController: UIViewController {
         return button
     }()
     
-    private lazy var compatibilityLabel: UILabel = {
+    private let compatibilityLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 575, width: 172, height: 30)
         label.font = .systemFont(ofSize: 11, weight: .semibold)
@@ -122,7 +122,7 @@ final class ProductViewController: UIViewController {
         return label
     }()
     
-    private lazy var macBookProLabel: UILabel = {
+    private let macBookProLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 174, y: 575, width: 172, height: 30)
         label.font = .systemFont(ofSize: 11, weight: .semibold)
@@ -132,7 +132,7 @@ final class ProductViewController: UIViewController {
         return label
     }()
     
-    private lazy var checkMarkImageView: UIImageView = {
+    private let checkMarkImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 60, y: 580, width: 18, height: 18)
         myImageView.image = UIImage(systemName: Contacts.checkmarkImageName)
@@ -141,7 +141,7 @@ final class ProductViewController: UIViewController {
         return myImageView
     }()
     
-    private lazy var orderLabel: UILabel = {
+    private let orderLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 60, y: 705, width: 300, height: 15)
         label.font = .systemFont(ofSize: 11, weight: .semibold)
@@ -151,7 +151,7 @@ final class ProductViewController: UIViewController {
         return label
     }()
     
-    private lazy var dateDeliveryLabel: UILabel = {
+    private let dateDeliveryLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 60, y: 720, width: 300, height: 15)
         label.font = .systemFont(ofSize: 11, weight: .semibold)
@@ -161,7 +161,7 @@ final class ProductViewController: UIViewController {
         return label
     }()
     
-    private lazy var typeOfDevileryLabel: UILabel = {
+    private let typeOfDevileryLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 60, y: 735, width: 300, height: 15)
         label.font = .systemFont(ofSize: 11, weight: .regular)
@@ -171,7 +171,7 @@ final class ProductViewController: UIViewController {
         return label
     }()
     
-    private lazy var shippingBoxImageView: UIImageView = {
+    private let shippingBoxImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.frame = CGRect(x: 20, y: 705, width: 18, height: 18)
         myImageView.image = UIImage(systemName: Contacts.shippingboxImageName)
@@ -191,10 +191,7 @@ final class ProductViewController: UIViewController {
     }()
 
     // MARK: - Public properties
-    var discriptionText = ""
-    var imageNames: [String] = []
-    var price = ""
-    var tag = 0
+    var product: (name: String, imageName: [String], prices: String, tags: Int)?
     
     // MARK: - Lifeсycle
     override func viewDidLoad() {
@@ -246,13 +243,15 @@ final class ProductViewController: UIViewController {
             imageView.isUserInteractionEnabled = true
         }
         
-        for number in 0..<imageNames.count {
-            imageViews[number].image = UIImage(named: imageNames[number])
+        for number in 0..<(product?.1.count ?? 0) {
+            guard let imageName = product?.imageName[number] else { return }
+            imageViews[number].image = UIImage(named: imageName)
         }
         
     }
     
     private func setupScrollViewConfig() {
+        guard let tag = product?.tags else { return }
         if tag == 2 {
             imagesScrollView.contentSize = .init(width: view.bounds.width * 2, height: 200)
         }
@@ -274,11 +273,12 @@ final class ProductViewController: UIViewController {
     }
     
     @objc private func recognaizerAndPriceAction(_ sender: Any) {
+        guard let tag = product?.tags else { return }
         let webVC = WebViewController()
         if sender is UITapGestureRecognizer {
             webVC.tag = tag
         } else {
-            webVC.tag = 5
+            webVC.tagTwo = 5
         }
         webVC.modalPresentationStyle = .fullScreen
         present(webVC, animated: true)
