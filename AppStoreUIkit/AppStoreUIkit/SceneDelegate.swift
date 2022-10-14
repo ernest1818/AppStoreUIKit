@@ -14,8 +14,14 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let applicationScene = (scene as? UIWindowScene) else { return }
         window?.windowScene = applicationScene
+        let defaults = UserDefaults.standard
+        let pageViewController = PageViewController()
         let tabBarController = MainTabBarController()
-        window?.rootViewController = tabBarController
+        if defaults.string(forKey: "key") == "Onboarding" {
+            window?.rootViewController = tabBarController
+        } else {
+            window?.rootViewController = pageViewController
+        }
         window?.makeKeyAndVisible()
     }
 }
