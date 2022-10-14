@@ -20,12 +20,12 @@ final class PageViewController: UIPageViewController {
     }
     
     // MARK: - Private Properties
-    private var index = 0
     private let oneboardingKey = Constants.onboardingText
-    private var skipButton = UIButton()
-    private var nextButton = UIButton()
     private let getStartedButton = UIButton()
     private let pageControl = UIPageControl()
+    private var index = 0
+    private var skipButton = UIButton()
+    private var nextButton = UIButton()
     private var imagePages: [UIViewController] = [UIViewController]()
     
     // MARK: - Initiazers
@@ -72,7 +72,7 @@ final class PageViewController: UIPageViewController {
         pageControl.currentPage = 0
         pageControl.numberOfPages = 3
         pageControl.currentPageIndicatorTintColor = .systemBlue
-        pageControl.addTarget(self, action: #selector(pageControlTapped), for: .valueChanged)
+        pageControl.addTarget(self, action: #selector(pageControlAction), for: .valueChanged)
         view.addSubview(pageControl)
     }
     
@@ -131,6 +131,7 @@ final class PageViewController: UIPageViewController {
                               animations: { self.nextButton.isHidden = true })
         }
     }
+    
     private func createAnimationInScrollBefore() {
         if pageControl.currentPage == 1 {
             nextButton.isHidden = false
@@ -180,7 +181,7 @@ final class PageViewController: UIPageViewController {
         present(tabBarVC, animated: true)
     }
     
-    @objc func pageControlTapped(_ sender: UIPageControl) {
+    @objc func pageControlAction(_ sender: UIPageControl) {
         setViewControllers([imagePages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
     }
     

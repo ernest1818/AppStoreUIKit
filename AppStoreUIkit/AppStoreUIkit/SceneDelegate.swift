@@ -8,6 +8,12 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    private enum Constants {
+        static let userDefaultsObject = "Onboarding"
+        static let userDefaultsKey = "key"
+    }
+    
     var window: UIWindow?
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
@@ -17,7 +23,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let defaults = UserDefaults.standard
         let pageViewController = PageViewController()
         let tabBarController = MainTabBarController()
-        if defaults.string(forKey: "key") == "Onboarding" {
+        if defaults.string(forKey: Constants.userDefaultsKey) == Constants.userDefaultsObject {
             window?.rootViewController = tabBarController
         } else {
             window?.rootViewController = pageViewController

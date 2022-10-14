@@ -53,7 +53,7 @@ final class ImageViewController: UIViewController {
     // MARK: - Private Properties
     private var index = 0
     private var images: [Helper] = [Helper]()
-    private lazy var subView = [myImageView, largeFontLabel, smallFontLabel]
+    private lazy var subViews = [myImageView, largeFontLabel, smallFontLabel]
     
     // MARK: - lifeCycles
     
@@ -83,7 +83,7 @@ final class ImageViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        for view in subView {
+        for view in subViews {
             self.view.addSubview(view)
         }
         setAlphaZero()
